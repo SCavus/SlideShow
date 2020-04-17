@@ -21,12 +21,18 @@ images.src = links[0]
 let i = 0
 
 function forwardImg() {
+  if (i == links.length - 1) {
+    i = -1
+  }
   i++;
   images.src = links[i];
   i >= links.length - 1 ? i = -1 : i;
 }
 
 function backwardImg() {
+  if (i == -1) {
+    i = 0
+  } 
   images.src = links[i];
   i--;
   i < 0 ? i = links.length - 1 : i;
@@ -40,14 +46,29 @@ autoFrw.addEventListener("click", function() {
   stopBtn.addEventListener("click", function() {
     clearInterval(setFrwInt);
   });
+  backBtn.addEventListener('click', function() {
+    clearInterval(setFrwInt)
+  })
+  autoBack.addEventListener('click', function() {
+    clearInterval(setFrwInt)
+  })
+  frwBtn.addEventListener('click', function() {
+    clearInterval(setFrwInt)
+  })
 });
 
 autoBack.addEventListener('click', function() {
-    let setBackInt = setInterval(backwardImg, 1000)
-    stopBtn.addEventListener('click', function() {
-      clearInterval(setBackInt)
-    })
-    autoFrw.addEventListener("click", function() {
-      clearInterval(setBackInt)
-    })
+  let setBackInt = setInterval(backwardImg, 1000)
+  stopBtn.addEventListener('click', function() {
+    clearInterval(setBackInt)
+  })
+  backBtn.addEventListener('click', function() {
+    clearInterval(setBackInt)
+  })
+  autoFrw.addEventListener('click', function() {
+    clearInterval(setBackInt)
+  })
+  frwBtn.addEventListener('click', function() {
+    clearInterval(setBackInt)
+  })
 })
