@@ -42,7 +42,7 @@ frwBtn.addEventListener("click", forwardImg);
 backBtn.addEventListener("click", backwardImg);
 
 autoFrw.addEventListener("click", function() {
-  let setFrwInt = setInterval(forwardImg, 1000);
+  let setFrwInt = setInterval(forwardImg, 1500);
   stopBtn.addEventListener("click", function() {
     clearInterval(setFrwInt);
   });
@@ -55,10 +55,13 @@ autoFrw.addEventListener("click", function() {
   frwBtn.addEventListener('click', function() {
     clearInterval(setFrwInt)
   })
+  autoFrw.addEventListener('click', function() {
+    clearInterval(setFrwInt)
+  })
 });
 
 autoBack.addEventListener('click', function() {
-  let setBackInt = setInterval(backwardImg, 1000)
+  let setBackInt = setInterval(backwardImg, 1500)
   stopBtn.addEventListener('click', function() {
     clearInterval(setBackInt)
   })
@@ -69,6 +72,9 @@ autoBack.addEventListener('click', function() {
     clearInterval(setBackInt)
   })
   frwBtn.addEventListener('click', function() {
+    clearInterval(setBackInt)
+  })
+  autoBack.addEventListener('click', function() {
     clearInterval(setBackInt)
   })
 })
